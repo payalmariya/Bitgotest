@@ -2,6 +2,7 @@ package org.example.factory;
 
 
 import org.example.enums.NotificationType;
+import org.example.notifier.EmailNotifier;
 import org.example.notifier.Notifier;
 
 public class NotificationFactory {
