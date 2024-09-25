@@ -1,9 +1,12 @@
 package org.example;
 
 import org.example.controller.NotificationController;
+import org.example.enums.NotificationStatus;
 import org.example.enums.NotificationType;
 import org.example.model.CryptoInfo;
 import org.example.model.Notification;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,7 +17,8 @@ public class Main {
         CryptoInfo cryptoInfo = new CryptoInfo(1,2.0,2.0,3.0,4.0);
         Notification notification = new Notification(id++,"payalmariya02@gmail.com","anu@gmail.com",cryptoInfo, NotificationType.EMAIL);
         Notification notificationSend = notificationController.sentNotification(notification);
-        notificationController.listNotification();;
+        List<Notification> notificationList = notificationController.listNotification();;
+        notificationList.forEach(System.out::println);
         notificationController.deleteNotification(notificationSend.getId());
 
     }

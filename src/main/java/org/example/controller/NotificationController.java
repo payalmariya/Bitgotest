@@ -5,6 +5,8 @@ import org.example.model.CryptoInfo;
 import org.example.model.Notification;
 import org.example.service.NotificationService;
 
+import java.util.List;
+
 
 public class NotificationController {
 
@@ -19,9 +21,9 @@ public class NotificationController {
         notificationService.deleteNotification(id);
     }
 
-    public void listNotification(){
+    public List<Notification> listNotification(){
         NotificationService notificationService = new NotificationService();
-        notificationService.listAllNotification();
+        return notificationService.listAllNotification();
     }
 
 
