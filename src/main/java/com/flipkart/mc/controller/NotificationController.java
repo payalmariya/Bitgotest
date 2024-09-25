@@ -16,5 +16,15 @@ public class NotificationController {
         Notification notification = new Notification(id++,"payalmariya02@gmail.com","anu@gmail.com",cryptoInfo, NotificationType.EMAIL);
         notificationService.sentNotification(notification);
     }
+    public void deleteNotification(int id){
+        NotificationService notificationService = new NotificationService();
+        notificationService.deleteNotification(id);
+    }
+
+    public void listNotification(){
+        NotificationService notificationService = new NotificationService();
+        notificationService.listAllNotification();
+    }
+
 
 }

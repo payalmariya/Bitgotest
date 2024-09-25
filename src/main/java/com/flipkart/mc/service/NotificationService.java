@@ -11,7 +11,7 @@ public class NotificationService {
 
     List<Notification> notificationList = new ArrayList<>();
     Map<NotificationStatus,List<Notification>> notificationStatusListMap = new HashMap();
-    Map<Integer,List<Notification>> notificationIdListMap = new HashMap();
+    Map<Integer,Notification> notificationIdListMap = new HashMap();
 
     public Notification sentNotification(Notification notification){
         if(!isValidEmailAddress(notification.getFromAddress())){
@@ -31,9 +31,10 @@ public class NotificationService {
     }
 
     public Notification deleteNotification(int id){
+        Notification notification = notificationIdListMap.get(id);
         notificationIdListMap.remove(id);
-        Optional<Notification> notification= notificationList.stream().filter(notificationItr->notificationItr.getId()==id).findAny();
-        return null;
+        notificationList.removeIf(notificationList -> notificationList.getId() == id);
+        return notification;
     }
 
     public List<Notification> listAllNotification(){
